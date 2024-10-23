@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'iitu.edu.kz.Main'  // Update this to match the correct main class path
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)  // Замените на нужную версию
+    }
+}
+
+wrapper {
+    gradleVersion = '8.10.1'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    group = 'com.mjc.school'
+    sourceCompatibility = 23
+    targetCompatibility = 23
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+        implementation 'org.mapstruct:mapstruct-processor:1.5.5.Final'  // Добавлено для выполнения
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

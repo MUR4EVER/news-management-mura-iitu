@@ -1,0 +1,6 @@
+rootProject.name = 'news-mura'
+include 'module-main'
+include 'module-repository'
+include 'module-service'
+include 'module-web'
+
